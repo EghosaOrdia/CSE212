@@ -11,6 +11,25 @@ public static class ArraySelector
 
     private static int[] ListSelector(int[] list1, int[] list2, int[] select)
     {
-        return [];
+        int indexTracker1 = 0;
+        int indexTracker2 = 0;
+        int[] results = new int [select.Length];
+
+        for (int i = 0; i < select.Length; i++)
+        {
+            if (select[i] == 1)
+            {
+                results[i] = list1[indexTracker1];
+                ++indexTracker1;
+            }
+            else
+            {
+                results[i] = list2[indexTracker2];
+                ++indexTracker2;
+            }
+            
+        }
+        return results;
+        // Loop through select => create index trackers for each list => 
     }
 }
