@@ -13,7 +13,19 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // ******* STEPS ******* //
+        // 1. Create an fixed array of size 'length' to hold the multiples
+        // 2. Loop from 0 up to length
+        // 3. In each iteration, calculate number * (current index + 1) and store it in the array at the current index.
+        // 4. After the loop, return the array containing all multiples.
+        var multiples = new double[length];
+
+        for (int i = 0; i < length; ++i)
+        {
+            multiples[i] = number * (i + 1);
+        }
+
+        return multiples;
     }
 
     /// <summary>
@@ -29,5 +41,44 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        //  ******* STEPS *******
+
+        //  1. Create a variable (n) to store the length of the input list.
+
+        //  2. Normalize the rotation amount by computing:
+        //     amount = amount % n
+        //     (this prevents unnecessary extra rotations)
+
+        //  3. Create a fixed array (result) with length n.
+        //     This will temporarily store the rotated values so nothing is overwritten.
+
+        //  4. Iterate through the input list using index (idx).
+
+        //  5. For each element:
+        //     - Compute a new index using:
+        //       newIndex = (idx + amount) % n
+        //       This shifts the element to the right and wraps around if it goes past the end.
+
+        //  6. Place the value from the original list into its rotated position:
+        //     result[newIndex] = data[idx]
+
+        //  7. After the loop, copy all values from result back into the original list (data)
+        //     so that the rotation is applied to the input list.
+
+        int n = data.Count;
+        amount %= n;
+        var result = new int[n];
+
+        for (int idx = 0; idx < n; ++idx)
+        {
+            int newIndex = (idx + amount) % n;
+            result[newIndex] = data[idx];
+        }
+
+        for (int idx = 0; idx < n; ++idx)
+        {
+            data[idx] = result[idx];
+        }
     }
 }
