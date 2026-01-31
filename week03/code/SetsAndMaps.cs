@@ -158,7 +158,7 @@ public static class SetsAndMaps
             string place = feature.Properties.Place;
             double mag = feature.Properties.Mag;
 
-            descriptions.Add($"Locations: {place} - Magnitude: {mag},");
+            descriptions.Add($"{place} - Mag: {mag},");
         }
         return [.. descriptions];
     }
