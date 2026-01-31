@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 // TODO Problem 1 - Run test cases and record any defects the test code finds in the comment above the test method.
@@ -11,7 +12,7 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (5), Sue (3) and
     // run until the queue is empty
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, Sue, Tim, Tim
-    // Defect(s) Found: 
+    // Defect(s) Found: Assert.AreEqual Expected: <bob> Actual <Sue>
     public void TestTakingTurnsQueue_FiniteRepetition()
     {
         var bob = new Person("Bob", 2);
@@ -32,8 +33,10 @@ public class TakingTurnsQueueTests
             {
                 Assert.Fail("Queue should have ran out of items by now.");
             }
-
+            
+            Debug.WriteLine(expectedResult[i].Name);
             var person = players.GetNextPerson();
+            Debug.WriteLine(person.Name);
             Assert.AreEqual(expectedResult[i].Name, person.Name);
             i++;
         }
