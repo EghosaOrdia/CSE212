@@ -161,8 +161,7 @@ public static class Recursion
     /// </summary>
     public static void SolveMaze(List<string> results, Maze maze, int x = 0, int y = 0, List<ValueTuple<int, int>>? currPath = null)
     {
-        // If this is the first time running the function, then we need
-        // to initialize the currPath list.
+      
         if (currPath == null) {
             currPath = new List<ValueTuple<int, int>>();
         }
@@ -173,7 +172,6 @@ public static class Recursion
         {
             results.Add(currPath.AsString());
 
-            // Backtrack
             currPath.RemoveAt(currPath.Count - 1);
             return;
         }
